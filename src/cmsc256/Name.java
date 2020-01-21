@@ -1,3 +1,4 @@
+package cmsc256;
 /**
  * A class that represents a Name consisting of a first, optional middle, 
  * and last name.

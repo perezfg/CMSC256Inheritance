@@ -1,23 +1,30 @@
+/*
+ * Francisco Perez
+ * CMSC 256 - Section ALL
+ * Project Name - Inheritance
+ * A class that creates an Student consisting of level
+ */
+package cmsc256;
 public class Student extends Person{
-	private Name name;
-	private Address address;
 	private String level;
-	
+	/* Creating default class for Student 
+	 */
 	public Student() {
-		
+		super();
+		level = "Freshman";
 	}
+	/*Creating parameterized constructor for Staff
+	 * */
 	public Student(String first, String middle, String last, Address homeAddress, String phoneNumber, String email, String level) {
 		super(first, middle, last, homeAddress, phoneNumber, email);
 		if(!isValidLevel(level)) {
 			throw new IllegalArgumentException("Level is not formatted correctly. ");
 		}		
-		if (middle == null) {
-			this.name= new Name(first, last);
-		}
-		this.name=new Name(first, middle, last);
-		this.address = homeAddress;
 		this.level=level;
 	}
+	/*Creating boolean method to check if rank is one of 5 values that a student object can be
+	 * 
+	 */
 	private boolean isValidLevel(String level) {
 		String[] levels = {"Freshman","Sophomore", "Junior", "Senior","Graduate"};
 		for (int i=0; i<levels.length; i++){
@@ -27,15 +34,12 @@ public class Student extends Person{
 		}
 		return false;
 	}
+	/*Creating toString method to output Student object
+	 * */ 
 @Override
 	public String toString() {
 		String result;
-		result = "Student: \n";
-		result+="-----------------\n";
-		result +=name+"\n";
-		result+="-----------------\n";
-		result +="Address: "+address+"\n";
-		result+=super.toString();
+		result=super.toString();
 		result+= "Student Level: "+level+"\n";
 		return result;
 	}

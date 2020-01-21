@@ -1,3 +1,4 @@
+package cmsc256;
 /**
  *  A class that represents a street address and provides
  *  a formatted string representation of the instance variables.
